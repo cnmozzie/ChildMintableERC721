@@ -105,6 +105,7 @@ abstract contract ERC721Tradable is
      */
     function withdraw(uint256 tokenId) external {
         require(_msgSender() == ownerOf(tokenId), "ChildMintableERC721: INVALID_TOKEN_OWNER");
+        require(_msgSender() == holderOf(tokenId), "ChildMintableERC721: INVALID_TOKEN_HOLDER");
         withdrawnTokens[tokenId] = true;
         _burn(tokenId);
     }
