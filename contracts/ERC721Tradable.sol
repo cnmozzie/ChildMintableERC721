@@ -182,17 +182,9 @@ abstract contract ERC721Tradable is
      * @param _to address of the future owner of the token
      */
     function mintTo(address _to) public onlyOwner {
-        uint256 newTokenId = _getNextTokenId();
+        uint256 newTokenId = _currentTokenId;
         _mint(_to, newTokenId);
         _incrementTokenId();
-    }
-
-    /**
-     * @dev calculates the next token ID based on value of _currentTokenId
-     * @return uint256 for the next token ID
-     */
-    function _getNextTokenId() private view returns (uint256) {
-        return _currentTokenId.add(1);
     }
 
     /**
@@ -207,7 +199,7 @@ abstract contract ERC721Tradable is
     function tokenURI(uint256 _tokenId) override public view returns (string memory) {
         bytes memory tempURI = bytes(_tokenURI[_tokenId]);
         if (tempURI.length == 0) {
-          return string(abi.encodePacked(baseTokenURI(), Strings.toString(_tokenId)));
+          return string(abi.encodePacked(baseTokenURI(), Strings.toString(_tokenId), ".json"));
         }
         else {
           return _tokenURI[_tokenId];
