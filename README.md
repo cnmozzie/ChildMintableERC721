@@ -9,6 +9,12 @@ An NFT contract on MATIC
 
 `npm install truffle-plugin-verify`
 
+### run script
+
+`truffle exec publish.js`
+
+(remember to change N and addresses first)
+
 ### crosschain bridge
 
 https://bridge.mintnft.today/

@@ -60,7 +60,7 @@
       provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`),
       network_id: 80001,
 	    gas: 20000000,
-	    gasPrice: 30000000000,
+	    gasPrice: 10000000000,
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true
